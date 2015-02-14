@@ -10,11 +10,13 @@ public class Grid : MonoBehaviour {
 	public GameObject rusPlayer;
 	public GameObject[,] position = new GameObject [6,5];
 	public int [] a = new int[5];
+	public GameObject PlayerManager;
 	
 	// Use this for initialization
 	void Start () {
 		Instantiate (japPlayer);
 		Instantiate (rusPlayer);
+		Instantiate (PlayerManager);
 		japPlayer.transform.position = new Vector3 (-4f, 7f, -1f);
 		rusPlayer.transform.position = new Vector3 (-4f, -3f, -1f);
 		CreateWorld ();

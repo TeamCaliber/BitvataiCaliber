@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerMovement : Grid {
 
-	public GameObject[,] neighborNodes = new GameObject[2,2]
+	//public GameObject[,] neighborNodes = new GameObject[2,2]
 	void Start () {
 	
 
