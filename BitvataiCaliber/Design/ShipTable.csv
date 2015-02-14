@@ -1,0 +1,10 @@
+Stats,In Deck,Crew,Force,Morale,Cost,Quantity,Admiral Name,Ship Name
+Japan Flagship,N,4,4,-4,0,1,Togo Heihashiro,Mikasa
+Russian Flagship,N,8,8,-8,0,1,Zinovy Rozheshensky,Knyaz Surorov
+Torpedo,Y,4,1,-7,4,4,,
+Basic Destroyer,Y,5,4,-6,4,6,,
+Advanced Destroyer,Y,6,7,-5,4,4,,
+Basic Cuiser,Y,7,10,-4,4,4,,
+Advanced Cruiser,Y,8,13,-3,4,4,,
+Basic Battleship,Y,9,16,-2,4,4,,
+Advanced Battleship,Y,10,19,-1,4,4,,
