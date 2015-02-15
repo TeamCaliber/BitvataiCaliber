@@ -44,12 +44,10 @@ public class Boxes : MonoBehaviour {
 		
 		if (Input.GetButtonDown("Fire1")) {
 		Debug.Log("asD");
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
-			Vector3 fwd = transform.TransformDirection(Vector3.forward);
-			if (Physics.Raycast(Input.mousePosition,fwd,out hit))
-			{
-					Debug.Log(hit.transform.name);
-			}
+			if (Physics.Raycast(ray, out hit, 100))
+				Debug.DrawLine(ray.origin, hit.point);
 			
 				
 				

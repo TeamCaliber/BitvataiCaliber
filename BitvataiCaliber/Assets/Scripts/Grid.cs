@@ -44,6 +44,7 @@ public class Grid : MonoBehaviour {
 				cube.transform.position = new Vector3 (x+=2,y,0);
 				cube.renderer.material.color = new Color(Random.Range (0f,10f) / 10, Random.Range (0f,10f) / 10, Random.Range (0f,10f) / 10);
 				cube.AddComponent("Boxes");
+				cube.AddComponent("BoxCollider");
 			//	cube.tag = "Box";
 				position[i,j] = cube;
 
