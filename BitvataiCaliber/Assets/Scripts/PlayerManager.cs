@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour {
 	public GameObject RussiaPiece;
 	// Use this for initialization
 	void Start () {
+		
+		Decks = GameObject.FindWithTag("DeckManager").GetComponent<DeckManager>();
 		try{
 			JapanPiece = GameObject.FindWithTag("JapanPiece");
 		}
