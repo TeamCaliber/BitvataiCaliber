@@ -83,22 +83,15 @@ public class PlayerManager : MonoBehaviour {
         // Updates UI elements
         //Japan:
         JpnMoney.text = Japan.GetMoney().ToString();
-        PrintJapan();
-        //RusTroops.text = Russia.GetTroops().ToString();
+        JpnTroops.text = Japan.GetTroops().ToString();
         JpnMorale.text = Japan.GetMorale().ToString();
-        //RusForce.text = Russia.GetCurretForce().ToString(); 
+        JpnForce.text = Japan.CalculateForce().ToString();
 
         // Russia:
         RusMoney.text = Russia.GetMoney().ToString();
-        // RusTroops.text = Russia.GetTroops().ToString();
+        RusTroops.text = Russia.GetTroops().ToString();
         RusMorale.text = Russia.GetMorale().ToString();
-        // RusForce.text = Russia.GetCurretForce().ToString(); 
-
-        Debug.Log(RusMoney + "HI");
-        Debug.Log(Russia);
-        Russia.Morale++;
-
-
+        RusForce.text = Russia.CalculateForce().ToString();
 	}
 
 	void PrintRussia(){
