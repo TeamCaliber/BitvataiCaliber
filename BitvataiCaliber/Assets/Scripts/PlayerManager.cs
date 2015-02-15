@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour {
@@ -9,10 +10,24 @@ public class PlayerManager : MonoBehaviour {
 	public GameObject JapanPiece;
 	public PlayerData Russia;
 	public GameObject RussiaPiece;
-	// Use this for initialization
+	
+    // UI Variables
+    // Japan:
+    public Text JpnMoney;
+    public Text JpnTroops;
+    public Text JpnMorale;
+    public Text JpnForce;
+
+    // Russia:
+    public Text RusMoney;
+    public Text RusTroops;
+    public Text RusMorale;
+    public Text RusForce;
+    
+    
+    // Use this for initialization
 	void Start () {
 		
-		Decks = GameObject.FindWithTag("DeckManager").GetComponent<DeckManager>();
 		try{
 			JapanPiece = GameObject.FindWithTag("JapanPiece");
 		}
@@ -60,11 +75,26 @@ public class PlayerManager : MonoBehaviour {
 		//PrintRussia();
 		//PrintJapan();
 	}
-	
+	void Awake(){Decks = GameObject.FindWithTag("DeckManager").GetComponent<DeckManager>();}
 	// Update is called once per frame
 	void Update () {
+		try{
+        // Updates UI elements
+        //Japan:
+        JpnMoney.text = Japan.GetMoney().ToString();
+        PrintJapan();
+        //RusTroops.text = Russia.GetTroops().ToString();
+        JpnMorale.text = Japan.GetMorale().ToString();
+        //RusForce.text = Russia.GetCurretForce().ToString(); 
 
-
+        // Russia:
+        RusMoney.text = Russia.GetMoney().ToString();
+        // RusTroops.text = Russia.GetTroops().ToString();
+        RusMorale.text = Russia.GetMorale().ToString();
+        // RusForce.text = Russia.GetCurretForce().ToString(); 
+		}
+		catch(System.Exception e){
+		}
 	}
 
 	void PrintRussia(){
