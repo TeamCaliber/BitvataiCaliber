@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class Moves : MonoBehaviour {
 	
 	public Grid grid;
-	public List<GameObject> neighborNodes = new List<GameObject>();
 	public GameObject tempObject;
 	public GameObject tempObject1;
 	// Use this for initialization
@@ -27,16 +26,12 @@ public class Moves : MonoBehaviour {
 
 			if (this.transform.position.x == boxes.transform.position.x && this.transform.position.y == boxes.transform.position.y) {
 				tempObject = boxes;
-				Debug.Log (tempObject.name);
+				tempObject.GetComponent<Boxes>().isPlayerOnthis = true;
+			//	Debug.Log (tempObject.name);
 
 			}
 		}
 
 	}
 
-	void FindPossibleMoves()
-	{
-
-
-	}
 }
