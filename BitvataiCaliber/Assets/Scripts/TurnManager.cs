@@ -111,7 +111,10 @@ public class TurnManager : MonoBehaviour {
 
             case STATE.GAMEUPKEEP:
 
-                CurrentState = STATE.UPKEEP;
+                if (TurnCount == 1) 
+                    CurrentState = STATE.ACTION;
+                else
+                    CurrentState = STATE.UPKEEP;
                 break;
 
             case STATE.ENDGAME:
