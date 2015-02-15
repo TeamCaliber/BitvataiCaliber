@@ -28,7 +28,6 @@ public class PlayerManager : MonoBehaviour {
     // Use this for initialization
 	void Start () {
 		
-		Decks = GameObject.FindWithTag("DeckManager").GetComponent<DeckManager>();
 		try{
 			JapanPiece = GameObject.FindWithTag("JapanPiece");
 		}
@@ -76,10 +75,10 @@ public class PlayerManager : MonoBehaviour {
 		//PrintRussia();
 		//PrintJapan();
 	}
-	
+	void Awake(){Decks = GameObject.FindWithTag("DeckManager").GetComponent<DeckManager>();}
 	// Update is called once per frame
 	void Update () {
-
+		try{
         // Updates UI elements
         //Japan:
         JpnMoney.text = Japan.GetMoney().ToString();
@@ -92,6 +91,9 @@ public class PlayerManager : MonoBehaviour {
         RusTroops.text = Russia.GetTroops().ToString();
         RusMorale.text = Russia.GetMorale().ToString();
         RusForce.text = Russia.CalculateForce().ToString();
+		}
+		catch(System.Exception e){
+		}
 	}
 
 	void PrintRussia(){

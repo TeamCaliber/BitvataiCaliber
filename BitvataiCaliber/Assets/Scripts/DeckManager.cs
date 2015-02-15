@@ -16,7 +16,7 @@ public class DeckManager : MonoBehaviour {
 		MoneyDeck = new List<Money>();
 		ShipDeck = new List<Ship>();
 		TroopDeck = new List<Troop>();
-		Players = GameObject.FindWithTag("PlayerManager").GetComponent<PlayerManager>();
+
 		string[,] moneyGrid = SplitCsvGrid(MoneyCards.text);		
 		List<string[]> moneyText = OutputGrid(moneyGrid); 
 		for(int i = 1; i < moneyText.Count; i++){
@@ -59,7 +59,7 @@ public class DeckManager : MonoBehaviour {
 			}
 		}
 	}
-
+	void Awake(){Players = GameObject.FindWithTag("PlayerManager").GetComponent<PlayerManager>();}
 	/// <summary>
 	/// READING CSVs and returning Lists of String arrays representing the csvs as tables
 	/// </summary>
