@@ -52,7 +52,13 @@ public class PlayerData : MonoBehaviour {
 		}
 		return force;
 	}
-	public int GetMorale(){
+	// Getter Functions
+    public int GetMorale(){
 		return Morale;
 	}
+
+    public int GetMoney()
+    {
+        return CurrentMoney;
+    }
 }

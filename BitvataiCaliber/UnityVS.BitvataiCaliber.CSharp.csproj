@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Boxes.cs" />
+    <Compile Include="Assets\Scripts\DeckManager.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\Money.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Assets\Scripts\Ship.cs" />
     <Compile Include="Assets\Scripts\Troop.cs" />
     <Compile Include="Assets\Scripts\TurnManager.cs" />
-    <Compile Include="Assets\Scripts\Ui Script.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
