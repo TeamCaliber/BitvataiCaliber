@@ -16,18 +16,12 @@ public class Boxes : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
-		//foreach (GameObject boxes in grid.position) {
-			
-		//	if (this.transform.position.x == boxes.transform.position.x && this.transform.position.y == boxes.transform.position.y) {
-
-				
-			//}
-	//	}
 						
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+//	Debug.Log(box.left.name);
 	}
 }
