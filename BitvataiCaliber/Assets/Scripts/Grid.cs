@@ -11,14 +11,17 @@ public class Grid : MonoBehaviour {
 	public GameObject[,] position = new GameObject [6,5];
 //	public List<GameObject> position = new List<GameObject>();
 	public int [] a = new int[5];
-	public GameObject PlayerManager;
+	public GameObject PlayerManagerObj;
+	public GameObject DeckManagerObj;
 	public bool check1;
-	
+	public List<GameObject> neighborNodes = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
 		Instantiate (japPlayer);
 		Instantiate (rusPlayer);
-		Instantiate (PlayerManager);
+		Instantiate (PlayerManagerObj);
+	//	Instantiate(DeckManagerObj);
+	//	DeckManagerObj.GetComponent<DeckManager>().Players = PlayerManagerObj.GetComponent<PlayerManager>(); 
 		japPlayer.transform.position = new Vector3 (-4f, 7f, -1f);
 		rusPlayer.transform.position = new Vector3 (-4f, -3f, -1f);
 		CreateWorld ();
@@ -50,18 +53,28 @@ public class Grid : MonoBehaviour {
 			x=-6;
 			
 		}
-		CurrentPosis();
-
+		
+		MapNodes();
 	}
-	void CurrentPosis()
+	
+	void MapNodes()
 	{
-		Debug.Log (position.Length);
-		foreach (GameObject boxes in position) {
-			Debug.Log ("Hello");
-			if (this.transform.position == boxes.transform.position) {
-				Debug.Log ("Gotcha" + boxes.transform.position);
+	for (int i = 0; i <6; i++) {
+			
+			for (int j = 0; j < 5; j++) {
+				if((i-1) >0)
+				position[i,j].GetComponent<Boxes>().box.left = position[i-1,j];
+				if((i+1) <5)
+				position[i,j].GetComponent<Boxes>().box.right = position[i+1,j];
+				if((j-1) >0)
+				position[i,j].GetComponent<Boxes>().box.top = position[i,j+1];
+				if((j+1) <4)
+				position[i,j].GetComponent<Boxes>().box.down = position[i,j-1];
 			}
-		}
+			
+	}
+	
+	
 	}
 
 }
