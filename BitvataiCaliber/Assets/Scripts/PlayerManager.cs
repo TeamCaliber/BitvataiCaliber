@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour {
 
+	public DeckManager Decks;
+
 	public PlayerData Japan;
 	public GameObject JapanPiece;
 	public PlayerData Russia;
@@ -24,6 +26,8 @@ public class PlayerManager : MonoBehaviour {
 		Japan.OwnedShips = new List<Ship>();
 		Japan.TroopCards = new List<Troop>();
 		Ship Mikasa = Japan.AddShip(8, 8, 0, 8); //AddShip(int force, float moraleDmg, int cost, int minimumTroops)
+		Mikasa.Name = "Mikasa";
+		Mikasa.Admiral = "Togo Heihashiro";
 		Japan.AddTroopCard(8).AssignToShip(Mikasa); //AddTroopCard(int numberOfTroops) + AssignToShip( Ship ShipToAssignTroopCardTo )
 		Japan.Morale = 75;
 		Japan.CurrentMoney = 5;
@@ -43,14 +47,16 @@ public class PlayerManager : MonoBehaviour {
 		Russia.OwnedShips = new List<Ship>();
 		Russia.TroopCards = new List<Troop>();
 		Ship Suvonov = Russia.AddShip(4, 4, 0, 4); //AddShip(int force, float moraleDmg, int cost, int minimumTroops)
+		Suvonov.Name = "Knyaz Surorov";
+		Suvonov.Admiral = "Zinovy Rozheshensky";
 		Russia.AddTroopCard(4).AssignToShip(Suvonov); //AddTroopCard(int numberOfTroops) + AssignToShip( Ship ShipToAssignTroopCardTo )
 		Russia.AddTroopCard(6);
 		Russia.Morale = 70;
 		Russia.CurrentMoney = 5;
 		// generate Russian Player GameObject
 
-		PrintRussia();
-		PrintJapan();
+		//PrintRussia();
+		//PrintJapan();
 	}
 	
 	// Update is called once per frame
