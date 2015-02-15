@@ -9,8 +9,10 @@ public class Grid : MonoBehaviour {
 	public GameObject japPlayer;
 	public GameObject rusPlayer;
 	public GameObject[,] position = new GameObject [6,5];
+//	public List<GameObject> position = new List<GameObject>();
 	public int [] a = new int[5];
 	public GameObject PlayerManager;
+	public bool check1;
 	
 	// Use this for initialization
 	void Start () {
@@ -24,7 +26,8 @@ public class Grid : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+	
 	}
 	
 	void CreateWorld()
@@ -33,20 +36,32 @@ public class Grid : MonoBehaviour {
 		for (int i = 0; i <6; i++) {
 			
 			for (int j = 0; j < 5; j++) {
-				
+
 				GameObject cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
 				cube.name = "Box"+ cubeNum;
 				cube.transform.position = new Vector3 (x+=2,y,0);
-				cube.transform.parent = this.transform;
 				cube.renderer.material.color = new Color(Random.Range (0f,10f) / 10, Random.Range (0f,10f) / 10, Random.Range (0f,10f) / 10);
-				position[i,j]= cube;
+				cube.AddComponent("Boxes");
+				position[i,j] = cube;
+
 				cubeNum++;
 			}
 			y-=2;
 			x=-6;
 			
 		}
-		
-		Debug.Log (position.Length);
+		CurrentPosis();
+
 	}
+	void CurrentPosis()
+	{
+		Debug.Log (position.Length);
+		foreach (GameObject boxes in position) {
+			Debug.Log ("Hello");
+			if (this.transform.position == boxes.transform.position) {
+				Debug.Log ("Gotcha" + boxes.transform.position);
+			}
+		}
+	}
+
 }

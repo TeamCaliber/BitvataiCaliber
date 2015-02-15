@@ -49,8 +49,8 @@ public class PlayerManager : MonoBehaviour {
 		Russia.CurrentMoney = 5;
 		// generate Russian Player GameObject
 
-		PrintRussia();
-		PrintJapan();
+		//PrintRussia();
+		//PrintJapan();
 	}
 	
 	// Update is called once per frame
