@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour {
 		}
 		JapanPiece.AddComponent<PlayerData>();
 		Japan = JapanPiece.GetComponent<PlayerData>();
-		
+		Japan.PM = this;
 		Japan.OwnedShips = new List<Ship>();
 		Japan.TroopCards = new List<Troop>();
 		Ship Mikasa = Japan.AddShip(8, 8, 0, 8); //AddShip(int force, float moraleDmg, int cost, int minimumTroops)
@@ -65,6 +65,7 @@ public class PlayerManager : MonoBehaviour {
 		}
 		RussiaPiece.AddComponent<PlayerData>();
 		Russia = RussiaPiece.GetComponent<PlayerData>();
+		Russia.PM = this;
 		Russia.OwnedShips = new List<Ship>();
 		Russia.TroopCards = new List<Troop>();
 		Ship Suvonov = Russia.AddShip(4, 4, 0, 4); //AddShip(int force, float moraleDmg, int cost, int minimumTroops)
@@ -90,18 +91,18 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		try{
-        // Updates UI elements
-        //Japan:
-        JpnMoney.text = Japan.GetMoney().ToString();
-        JpnTroops.text = Japan.GetTroops().ToString();
-        JpnMorale.text = Japan.GetMorale().ToString();
-        JpnForce.text = Japan.CalculateForce().ToString();
+	        // Updates UI elements
+	        //Japan:
+	        JpnMoney.text = Japan.GetMoney().ToString();
+	        JpnTroops.text = Japan.GetTroops().ToString();
+	        JpnMorale.text = Japan.GetMorale().ToString();
+	        JpnForce.text = Japan.CalculateForce().ToString();
 
-        // Russia:
-        RusMoney.text = Russia.GetMoney().ToString();
-        RusTroops.text = Russia.GetTroops().ToString();
-        RusMorale.text = Russia.GetMorale().ToString();
-        RusForce.text = Russia.CalculateForce().ToString();
+	        // Russia:
+	        RusMoney.text = Russia.GetMoney().ToString();
+	        RusTroops.text = Russia.GetTroops().ToString();
+	        RusMorale.text = Russia.GetMorale().ToString();
+	        RusForce.text = Russia.CalculateForce().ToString();
 		}
 		catch(System.Exception e){
 		}
