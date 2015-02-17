@@ -5,12 +5,15 @@ using UnityEditor;
 public class TurnManager : MonoBehaviour {
 
     // All game states
-    enum STATE { UPKEEP, ACTION, MOVE, GAMEUPKEEP, ENDGAME, RESETGAME }
+    public enum STATE { LOADING, UPKEEP, ACTION, MOVE, GAMEUPKEEP, ENDGAME, RESETGAME }
     // Number of players
-    enum PLAYER { ONE, TWO}
+    public enum PLAYER { ONE, TWO}
     
-    STATE CurrentState;
-    PLAYER CurrentPlayer;
+    public STATE CurrentState;
+    public PLAYER CurrentPlayer;
+	public Grid Graph;
+	public DeckManager Decks;
+	public PlayerManager Players;
 
     int TurnCount = 1;
     public int MaxTurnCount = 15;
@@ -26,7 +29,7 @@ public class TurnManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) ChangeState();
+        //if(Input.GetKeyDown(KeyCode.Space)) ChangeState();
 
         switch (CurrentState)
         {
@@ -81,7 +84,7 @@ public class TurnManager : MonoBehaviour {
                 break;
 
             default:
-                Debug.Log("Default State");
+                Debug.Log("Game Awaiting Content to Load...");
                 
                 break;
         }
@@ -93,24 +96,23 @@ public class TurnManager : MonoBehaviour {
     {
         switch (CurrentState)
         {
-            case STATE.UPKEEP:
+			case STATE.LOADING:
+				CurrentState = STATE.ACTION;
+				break;	
 
-                CurrentState = STATE.ACTION;
-                    
+            case STATE.UPKEEP:
+			    CurrentState = STATE.ACTION;
                 break;
 
             case STATE.ACTION:
-
                 CurrentState = STATE.MOVE;
                 break;
 
             case STATE.MOVE:
-
                 CurrentState = STATE.GAMEUPKEEP;
                 break;
 
             case STATE.GAMEUPKEEP:
-
                 if (TurnCount == 1) 
                     CurrentState = STATE.ACTION;
                 else
@@ -118,7 +120,6 @@ public class TurnManager : MonoBehaviour {
                 break;
 
             case STATE.ENDGAME:
-
                 CurrentState = STATE.RESETGAME;
                 break;
         }
@@ -126,8 +127,10 @@ public class TurnManager : MonoBehaviour {
     // This function changes between the tywo players.
     void ChangePlayer()
     {
-        if (CurrentPlayer == PLAYER.ONE) CurrentPlayer = PLAYER.TWO;
-        else CurrentPlayer = PLAYER.ONE;
+        if (CurrentPlayer == PLAYER.ONE) 
+			CurrentPlayer = PLAYER.TWO;
+        else 
+			CurrentPlayer = PLAYER.ONE;
     }
 
     // Prints on the log the Current player, Current State and turn count for debbuging issues.
@@ -139,10 +142,14 @@ public class TurnManager : MonoBehaviour {
     }
 
     // Resets the game back to its original state.
-    void ResetGame()
+    public void ResetGame()
     {
-        CurrentState = STATE.ACTION;
+		CurrentState = STATE.LOADING;
         CurrentPlayer = PLAYER.ONE;
         TurnCount = 1;
     }
+
+	public void InitiateGame(){
+		ChangeState();
+	}
 }

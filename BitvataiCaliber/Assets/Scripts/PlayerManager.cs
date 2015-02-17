@@ -5,11 +5,16 @@ using System.Collections.Generic;
 public class PlayerManager : MonoBehaviour {
 
 	public DeckManager Decks;
+	public TurnManager Turns;
 
 	public PlayerData Japan;
 	public GameObject JapanPiece;
 	public PlayerData Russia;
 	public GameObject RussiaPiece;
+
+	//Manager Prefab Variables
+	public GameObject DMPrefab;
+	public GameObject TurnPrefab;
 	
     // UI Variables
     // Japan:
@@ -27,7 +32,6 @@ public class PlayerManager : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-		
 		try{
 			JapanPiece = GameObject.FindWithTag("JapanPiece");
 		}
@@ -75,7 +79,14 @@ public class PlayerManager : MonoBehaviour {
 		//PrintRussia();
 		//PrintJapan();
 	}
-	void Awake(){Decks = GameObject.FindWithTag("DeckManager").GetComponent<DeckManager>();}
+	void Awake(){
+		Decks = Instantiate(DMPrefab) as DeckManager;
+		Turns = Instantiate(TurnPrefab) as TurnManager;
+		Turns.Decks = Decks;
+		Turns.Players = this;
+		Turns.Graph = GameObject.FindWithTag("Grid").GetComponent<Grid>();
+		Turns.InitiateGame();
+	}
 	// Update is called once per frame
 	void Update () {
 		try{

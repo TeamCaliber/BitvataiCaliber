@@ -11,16 +11,18 @@ public class Grid : MonoBehaviour {
 	public GameObject[,] position = new GameObject [6,5];
 //	public List<GameObject> position = new List<GameObject>();
 	public int [] a = new int[5];
-	public GameObject PlayerManagerObj;
-	public GameObject DeckManagerObj;
+	public GameObject PlayerManagerPrefab;
+	public GameObject DeckManagerPrefab;
+	public GameObject TurnManagerPrefab;
+	PlayerManager Players;
+
 	public bool check1;
 	public List<GameObject> neighborNodes = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
 		Instantiate (japPlayer);
 		Instantiate (rusPlayer);
-		Instantiate (PlayerManagerObj);
-		Instantiate(DeckManagerObj); 
+		Players = Instantiate (PlayerManagerPrefab) as PlayerManager;
 		japPlayer.transform.position = new Vector3 (-4f, 7f, -1f);
 		rusPlayer.transform.position = new Vector3 (-4f, -3f, -1f);
 		CreateWorld ();
@@ -28,8 +30,7 @@ public class Grid : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-	
+		 
 	}
 	
 	void CreateWorld()
