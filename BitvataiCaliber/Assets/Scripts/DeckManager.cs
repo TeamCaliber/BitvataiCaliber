@@ -128,4 +128,29 @@ public class DeckManager : MonoBehaviour {
 		                                                                                                    System.Text.RegularExpressions.RegexOptions.ExplicitCapture)
 		        select m.Groups[1].Value).ToArray();
 	}
+
+    // Getter Functions:
+    // Returns The top Troop Card and removes it from the deck.
+    public Troop getTopTroopCard()
+    {
+        Troop TopTroop = TroopDeck[0];
+        TroopDeck.RemoveAt(0);
+        return TopTroop;
+    }
+
+    // Returns The top Money Card and removes it from the deck.
+    public Money getTopMoneyCard()
+    {
+        Money TopMoney = MoneyDeck[0];
+        MoneyDeck.RemoveAt(0);
+        return TopMoney;
+    }
+
+    // Returns The top Ship Card and removes it from the deck.
+    public Ship getTopShipCard()
+    {
+        Ship TopShip = ShipDeck[0];
+        MoneyDeck.RemoveAt(0);
+        return TopShip;
+    }
 }
