@@ -89,4 +89,32 @@ public class PlayerData : MonoBehaviour
         }
         return CurrentTroops;
     }
+
+    // Used by the UI to set the Different Actions.
+    public void ChooseAction (int ActionType)
+    {
+        switch (ActionType)
+        {
+            case 0:
+                CurrentAction = Action.Recruit;
+                Debug.Log("Recruit");
+                break;
+            case 1:
+                CurrentAction = Action.Extort;
+                Debug.Log("Extort");
+                break;
+            case 2:
+                CurrentAction = Action.Gift;
+                Debug.Log("Gift");
+                break;
+            case 3:
+                CurrentAction = Action.NONE;
+                Debug.Log("NONE");
+                break;
+            default:
+                Debug.Log("Invalid Action");
+                break;
+
+        }
+    }
 }

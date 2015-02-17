@@ -131,4 +131,18 @@ public class PlayerManager : MonoBehaviour {
 		Debug.Log("Japanese Base Force at: " + Japan.GetBaseForce() + " Force");
 		Debug.Log("Japanese Effective Force at: " + Japan.CalculateForce() + " Force");
 	}
+
+    // Defines Called by the UI to define Japan's Action
+    public void getJapanPlayerAction(int ActionType)
+    {
+        Debug.Log("Japan");
+        Japan.GetComponent<PlayerData>().ChooseAction(ActionType);
+    }
+
+    // Defines Called by the UI to define Russia's Action
+    public void getRussiaPlayerAction(int ActionType)
+    {
+        Debug.Log("Russia");
+        Russia.GetComponent<PlayerData>().ChooseAction(ActionType);
+    }
 }
