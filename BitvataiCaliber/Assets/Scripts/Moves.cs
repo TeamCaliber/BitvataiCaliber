@@ -9,7 +9,7 @@ public class Moves : MonoBehaviour {
 	public GameObject tempObject1;
 	// Use this for initialization
 	void Start () {
-		grid = GameObject.Find ("Plane").GetComponent<Grid> ();
+		grid = GameObject.FindWithTag("Grid").GetComponent<Grid> ();
 
 	}
 	

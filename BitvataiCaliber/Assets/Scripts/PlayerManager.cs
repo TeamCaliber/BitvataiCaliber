@@ -80,8 +80,8 @@ public class PlayerManager : MonoBehaviour {
 		//PrintJapan();
 	}
 	void Awake(){
-		Decks = Instantiate(DMPrefab) as DeckManager;
-		Turns = Instantiate(TurnPrefab) as TurnManager;
+		Decks = (Instantiate(DMPrefab) as GameObject).GetComponent<DeckManager>();
+		Turns = (Instantiate(TurnPrefab) as GameObject).GetComponent<TurnManager>();
 		Turns.Decks = Decks;
 		Turns.Players = this;
 		Turns.Graph = GameObject.FindWithTag("Grid").GetComponent<Grid>();

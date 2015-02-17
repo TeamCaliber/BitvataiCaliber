@@ -12,8 +12,6 @@ public class Grid : MonoBehaviour {
 //	public List<GameObject> position = new List<GameObject>();
 	public int [] a = new int[5];
 	public GameObject PlayerManagerPrefab;
-	public GameObject DeckManagerPrefab;
-	public GameObject TurnManagerPrefab;
 	PlayerManager Players;
 
 	public bool check1;

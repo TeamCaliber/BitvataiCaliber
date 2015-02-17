@@ -11,6 +11,13 @@ public class DeckManager : MonoBehaviour {
 	public List<Ship> ShipDeck;
 	public List<Troop> TroopDeck;
 	public List<Money> MoneyDeck;
+
+	public void ShuffleAll(){
+		List<Ship> ships = ShipDeck;
+		ShipDeck = new List<Ship>();
+
+	}
+
 	// Use this for initialization
 	void Start () {
 		MoneyDeck = new List<Money>();
@@ -44,9 +51,11 @@ public class DeckManager : MonoBehaviour {
 
 		string[,] shipGrid = SplitCsvGrid(ShipCards.text);		
 		List<string[]> shipText = OutputGrid(shipGrid); 
-		for(int i = 1; i < shipText.Count; i++){
+		for(int i = 0; i < shipText.Count; i++){
 			List<string[]> text = shipText;
-			int count = int.Parse(text[i][6]);
+			int count=0;
+			try{count = int.Parse(text[i][6]);}
+			catch(System.Exception e){continue;}
 			for(int j = 3; j<count; j++){
 				Ship newShip = new Ship();
 				newShip.Name = text[i][8];
