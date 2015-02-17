@@ -3,7 +3,16 @@ using System.Collections.Generic;
 
 public class PlayerData : MonoBehaviour
 {
-
+	public enum Action {
+		Recruit,
+		Extort,
+		Gift,
+		NONE
+	}
+	public PlayerManager PM;
+	public TurnManager Turns;
+	public Action CurrentAction;
+	public bool MyTurn = false;
     public PlayerData OpponentData; // not set up
     public List<Ship> OwnedShips;
     public List<Troop> TroopCards;
