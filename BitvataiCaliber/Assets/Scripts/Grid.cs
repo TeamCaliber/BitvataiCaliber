@@ -39,9 +39,9 @@ public class Grid : MonoBehaviour {
 			for (int j = 0; j < 5; j++) {
 
 				GameObject cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
-				cube.name = "Box"+ cubeNum;
+				cube.name = "Box" + cubeNum + " POS: " + i +", " + j;
 				cube.transform.position = new Vector3 (x+=2,y,0);
-				cube.renderer.material.color = new Color(0,55,55);
+				cube.renderer.material.color = new Color(0,15,15);
 				cube.AddComponent("Boxes");
 				cube.AddComponent("BoxCollider");
 			//	cube.tag = "Box";

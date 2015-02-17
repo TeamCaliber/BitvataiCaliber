@@ -34,6 +34,8 @@ public class PlayerManager : MonoBehaviour {
 	void Start () {
 		try{
 			JapanPiece = GameObject.FindWithTag("JapanPiece");
+			Japan.MoveManager = JapanPiece.GetComponent<Moves>();
+			Japan.MoveManager.Player = Japan;
 		}
 		catch(UnityException e){
 		}
@@ -56,6 +58,8 @@ public class PlayerManager : MonoBehaviour {
 	
 		try{
 			RussiaPiece = GameObject.FindWithTag("RussiaPiece");
+			Russia.MoveManager = JapanPiece.GetComponent<Moves>();
+			Russia.MoveManager.Player = Russia;
 		}
 		catch(UnityException e){
 		}

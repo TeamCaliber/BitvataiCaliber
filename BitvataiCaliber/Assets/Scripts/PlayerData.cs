@@ -13,11 +13,31 @@ public class PlayerData : MonoBehaviour
 	public TurnManager Turns;
 	public Action CurrentAction;
 	public bool MyTurn = false;
+	public Moves MoveManager;
+	public bool[] PossibleMoves;
     public PlayerData OpponentData; // not set up
     public List<Ship> OwnedShips;
     public List<Troop> TroopCards;
     public int Morale = 0;
     public int CurrentMoney = 0;
+
+
+	void Start(){
+		PossibleMoves = new bool[4];
+	}
+
+	public void UpdateMoves(bool[] moves){
+		PossibleMoves = moves;
+	}
+
+	void Update(){
+		if (MyTurn) {
+			// Show Arrows
+		}
+		else {
+			// Hide arrows
+		}
+	}
 
     /// <summary>
     /// ADDING ALL OBJECTS TO THE PLAYER
@@ -88,5 +108,5 @@ public class PlayerData : MonoBehaviour
             CurrentTroops += t.Force;
         }
         return CurrentTroops;
-    }
+  	}
 }
