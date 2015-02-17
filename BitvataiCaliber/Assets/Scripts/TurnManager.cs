@@ -35,9 +35,15 @@ public class TurnManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //if(Input.GetKeyDown(KeyCode.Space)) ChangeState();
+        if(Input.GetKeyDown(KeyCode.Space)) ChangeState();
 		if (!Started) {
-						return;
+			return;
+		}
+		if(CurrentPlayer==PLAYER.ONE){
+			Player[0].MyTurn=true; Player[1].MyTurn=false;
+		}
+		else if(CurrentPlayer==PLAYER.TWO){
+			Player[1].MyTurn=true; Player[0].MyTurn=false;
 		}
         switch (CurrentState)
         {
@@ -52,8 +58,8 @@ public class TurnManager : MonoBehaviour {
                 break;
             
             case STATE.MOVE:
-				ChangeState();// temporary until implemented
-                PrintDebugLog();    
+				//ChangeState();// temporary until implemented
+                //PrintDebugLog();    
                 break;
 
             case STATE.GAMEUPKEEP:
